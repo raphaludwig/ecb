@@ -10,7 +10,7 @@
 #' head(df)
 get_dataflows <- function(...) {
 
-  query_url <- "https://sdw-wsrest.ecb.europa.eu/service/dataflow"
+  query_url <- "https://data-api.ecb.europa.eu/service/dataflow"
 
   req <- make_request(query_url, "metadata", ...)
 
@@ -74,7 +74,7 @@ get_dataflows <- function(...) {
 #'    \item \code{true} returns version currently in production, as well as all previous versions
 #'    }
 #' }
-#' See the \href{https://sdw-wsrest.ecb.europa.eu/}{SDW API} for more details.
+#' See the \href{https://data-api.ecb.europa.eu}{SDW API} for more details.
 #'
 #' @return A data frame
 #' @export
@@ -216,7 +216,7 @@ convert_dates <- function(x) {
 
 create_query_url <- function(key, filter = NULL) {
 
-  url <- "https://sdw-wsrest.ecb.europa.eu/service/data"
+  url <- "https://data-api.ecb.europa.eu/service/data"
 
   # Get flow reference (= dataset abbreviation, e.g. ICP or BOP)
   flow_ref <- regmatches(key, regexpr("^[[:alnum:]]+", key))
